@@ -1,0 +1,3 @@
+FROM local/chronyd
+
+RUN apk add --update --no-cache nano bash

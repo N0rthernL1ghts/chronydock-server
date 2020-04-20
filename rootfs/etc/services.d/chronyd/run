@@ -1,0 +1,2 @@
+#!/bin/execlineb -P
+/usr/sbin/chronyd -d -m -u chrony
