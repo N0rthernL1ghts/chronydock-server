@@ -1,1 +1,3 @@
 .idea/
+rootfs/chrony/data/*
+!rootfs/chrony/data/dump/.gitkeep
