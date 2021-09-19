@@ -5,7 +5,7 @@ WORKDIR "/chrony"
 RUN apk add --update --upgrade --no-cache chrony
 COPY ["rootfs", "/"]
 
-HEALTHCHECK --interval=30s --timeout=5s CMD chronyc tracking > /dev/null
+HEALTHCHECK --interval=20s --timeout=5s CMD chronyc tracking > /dev/null
 
 VOLUME ["/chrony/data"]
 
