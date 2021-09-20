@@ -1,4 +1,4 @@
-FROM --platform=${BUILDPLATFORM} nlss/base-alpine
+FROM --platform=${TARGETPLATFORM} nlss/base-alpine
 
 WORKDIR "/chrony"
 
