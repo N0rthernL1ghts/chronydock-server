@@ -9,8 +9,7 @@ echo "> Timewatch service, version ${SVC_VERSION}, Interval ${SLEEP_INTERVAL}s"
 sleep 10
 
 # Run loop
-while true
-do
-	echo "> Timewatch: $(date)"
-	sleep "${SLEEP_INTERVAL}"
+while true; do
+  echo "> Timewatch: $(date)"
+  sleep "${SLEEP_INTERVAL}"
 done
