@@ -1,0 +1,11 @@
+#!/command/with-contenv bash
+# shellcheck shell=bash
+
+# init-fix-permissions main
+main() {
+    # This will prepend service name to all output from here
+    exec > >(while read -r line; do echo "[init-fix-permissions] ${line}"; done) 2>&1
+    chown chrony:chrony /chrony -Rv
+    chmod 2770 /chrony -Rv
+}
+main

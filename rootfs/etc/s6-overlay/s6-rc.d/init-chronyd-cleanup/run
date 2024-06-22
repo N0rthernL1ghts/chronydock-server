@@ -1,0 +1,10 @@
+#!/command/with-contenv bash
+# shellcheck shell=bash
+
+# init-chronyd-cleanup main
+main() {
+    # This will prepend service name to all output from here
+    exec > >(while read -r line; do echo "[init-chronyd-cleanup] ${line}"; done) 2>&1
+    rm -f /var/run/chrony/chronyd.pid
+}
+main

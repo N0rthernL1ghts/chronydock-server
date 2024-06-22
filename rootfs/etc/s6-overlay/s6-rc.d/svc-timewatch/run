@@ -1,0 +1,23 @@
+#!/command/with-contenv bash
+# shellcheck shell=bash
+
+# svc-timewatch main
+main() {
+    # This will prepend service name to all output from here
+    exec > >(while read -r line; do echo "[svc-timewatch] ${line}"; done) 2>&1
+
+    local svcVersion="1.0.0"
+    local sleepInterval="${TIMEWATCH_INTERVAL:-60}"
+
+    echo "Version ${svcVersion}, Interval ${sleepInterval}s"
+
+    # Delay start
+    sleep 10
+
+    # Run loop
+    while true; do
+        echo "> Timewatch: $(date)"
+        sleep "${sleepInterval}"
+    done
+}
+main
