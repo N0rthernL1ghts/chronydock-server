@@ -1,0 +1,36 @@
+networks:
+  default:
+
+services:
+  chronyd:
+    image: ghcr.io/n0rthernl1ghts/chrony-server:latest
+    hostname: "ntp.example.com"
+    deploy:
+      restart_policy:
+        condition: any
+      resources:
+        limits:
+          memory: 256M
+    cap_add:
+      - SYS_TIME
+    cap_drop:
+      # Drop all capabilities that are not needed
+      - FSETID
+      - KILL
+      - SETPCAP
+      - NET_RAW
+      - SYS_CHROOT
+      - MKNOD
+      - AUDIT_WRITE
+      - SETFCAP
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Stockholm
+    volumes:
+      - ./data/chronyd/data:/chrony/data
+      #- ./chrony.conf:/chrony/chrony.conf
+    ports:
+      - "123:123/udp"
+    networks:
+      default:
