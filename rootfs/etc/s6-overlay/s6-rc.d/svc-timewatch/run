@@ -16,7 +16,7 @@ main() {
 
     # Run loop
     while true; do
-        echo "> Timewatch: $(date)"
+        echo "Current time: $(date)"
         sleep "${sleepInterval}"
     done
 }
