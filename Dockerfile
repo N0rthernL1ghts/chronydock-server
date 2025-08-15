@@ -1,4 +1,4 @@
-FROM --platform=${TARGETPLATFORM} lscr.io/linuxserver/baseimage-alpine:3.20
+FROM --platform=${TARGETPLATFORM} lscr.io/linuxserver/baseimage-alpine:3.22
 
 WORKDIR "/chrony"
 
